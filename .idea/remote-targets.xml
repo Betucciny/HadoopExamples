@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RemoteTargetsManager">
+    <option name="projectDefaultTargetUuid" value="14c58cca-ecf4-45e9-8502-8493854b112e" />
     <targets>
       <target name="hadoop@localhost:3022" type="ssh/sftp" uuid="14c58cca-ecf4-45e9-8502-8493854b112e">
         <config>
@@ -10,7 +11,7 @@
         </config>
         <ContributedStateBase type="JavaLanguageRuntime">
           <config>
-            <option name="homePath" value="/usr/bin/java" />
+            <option name="homePath" value="/usr" />
             <option name="javaVersionString" value="1.8.0_402" />
           </config>
         </ContributedStateBase>
