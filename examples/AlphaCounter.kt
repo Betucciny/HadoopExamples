@@ -37,7 +37,7 @@ class AlphaReducer : Reducer<Text?, LongWritable, Text?, LongWritable?>() {
     private val result = LongWritable()
 
     @Throws(IOException::class, InterruptedException::class)
-    public override fun reduce(key: Text?, values: Iterable<LongWritable>, context: Context) {
+    override fun reduce(key: Text?, values: Iterable<LongWritable>, context: Context) {
         var sum: Long = 0
         for (`val` in values) {
             sum += `val`.get()

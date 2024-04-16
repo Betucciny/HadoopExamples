@@ -24,6 +24,8 @@ sshpass -p "$SSH_PASSWORD" scp -P "$SSH_PORT" "$LOCAL_JAR_FILE" "$SSH_USER"@"$SS
 # Execute the Hadoop job via SSH on the virtual machine
 sshpass -p "$SSH_PASSWORD" ssh -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "$HADOOP_JAR_COMMAND"
 
-HADOOP_READ_COMMAND="$HADOOP_COMMAND fs -cat $2/part-r-00000"
+HADOOP_OUTPUT_DIR="$2"
+
 echo "Reading the output of the Hadoop job"
-sshpass -p "$SSH_PASSWORD" ssh -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "$HADOOP_READ_COMMAND"
+
+sshpass -p "$SSH_PASSWORD" ssh -p "$SSH_PORT" "$SSH_USER"@"$SSH_HOST" "$HADOOP_COMMAND fs -ls $HADOOP_OUTPUT_DIR | grep '^-' | awk '{print \$8}' | while read -r file; do echo \"File: \$file\"; $HADOOP_COMMAND fs -cat \$file; echo \"----------------------------------------\"; done"

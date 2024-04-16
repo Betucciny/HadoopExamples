@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat
 import java.io.IOException
 import kotlin.system.exitProcess
 
-object `WordCount2.kt` {
+object Main {
     @Throws(Exception::class)
     @JvmStatic
     fun main(args: Array<String>) {
